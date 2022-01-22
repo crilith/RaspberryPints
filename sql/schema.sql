@@ -709,7 +709,7 @@ CREATE TABLE IF NOT EXISTS `kegs` (
 --
 
 CREATE TABLE IF NOT EXISTS `tapconfig` (
-  `tapId` int(11) DEFAULT NULL,
+  `tapId` int(11) NOT NULL DEFAULT '0',
   `flowPin` int(11) DEFAULT NULL,
   `valvePin` int(11) DEFAULT NULL,
   `valveOn` int(11) DEFAULT NULL,
@@ -905,10 +905,10 @@ CREATE TABLE IF NOT EXISTS `beerAccolades` (
 	FOREIGN KEY (`accoladeId`) REFERENCES accolades(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB	DEFAULT CHARSET=latin1;
 
-INSERT INTO accolades (id, name, rank, type, srm, notes, createdDate, modifiedDate) VALUES('1','Gold',1,'Medal','3.0','','2020-08-04 14:13:55','2020-08-04 14:14:34');
-INSERT INTO accolades (id, name, rank, type, srm, notes, createdDate, modifiedDate) VALUES('2','Silver',2,'Medal','4.2','','2020-08-04 14:14:34','2020-08-04 14:14:34');
-INSERT INTO accolades (id, name, rank, type, srm, notes, createdDate, modifiedDate) VALUES('3','Bronze',3,'Medal','9.6','','2020-08-04 14:14:34','2020-08-04 14:14:34');
-INSERT INTO accolades (id, name, rank, type, srm, notes, createdDate, modifiedDate) VALUES('4','BOS',4,'Medal','9.6','','2020-08-04 14:14:34','2020-08-04 14:14:34');
+INSERT INTO accolades (`id`, `name`, `rank`, `type`, `srm`, `notes`, `createdDate`, `modifiedDate`) VALUES('1','Gold',1,'Medal','3.0',' ','2020-08-04 14:13:55','2020-08-04 14:14:34');
+INSERT INTO accolades (`id`, `name`, `rank`, `type`, `srm`, `notes`, `createdDate`, `modifiedDate`) VALUES('2','Silver',2,'Medal','4.2',' ','2020-08-04 14:14:34','2020-08-04 14:14:34');
+INSERT INTO accolades (`id`, `name`, `rank`, `type`, `srm`, `notes`, `createdDate`, `modifiedDate`) VALUES('3','Bronze',3,'Medal','9.6',' ','2020-08-04 14:14:34','2020-08-04 14:14:34');
+INSERT INTO accolades (`id`, `name`, `rank`, `type`, `srm`, `notes`, `createdDate`, `modifiedDate`) VALUES('4','BOS',4,'Medal','9.6',' ','2020-08-04 14:14:34','2020-08-04 14:14:34');
 
 CREATE TABLE IF NOT EXISTS `bottleTypes` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1499,7 +1499,7 @@ INSERT INTO srmRgb ( srm, rgb, createdDate, modifiedDate ) VALUES
 
 CREATE TABLE IF NOT EXISTS `ioPins` (
 	`shield` varchar(30) NOT NULL,
-  `pin` int(11) DEFAULT NULL,
+  `pin` int(11) NOT NULL DEFAULT '0',
   `displayPin` text DEFAULT NULL,
 	`name` tinytext NULL,
   `col` int(11) DEFAULT NULL,
@@ -1512,7 +1512,7 @@ CREATE TABLE IF NOT EXISTS `ioPins` (
 	PRIMARY KEY (`shield`, `pin`)
 ) ENGINE=InnoDB	DEFAULT CHARSET=latin1;
 
-INSERT INTO ioPins ( shield, pin, name, col, row, rgb, pinSide, notes, createdDate, modifiedDate ) VALUES
+INSERT INTO ioPins ( `shield`, `pin`, `name`, `col`, `row`, `rgb`, `pinSide`, `notes`, `createdDate`, `modifiedDate` ) VALUES
 
 ('Pi', 1, 'PWR/3.3V', 1, 1, '255,200,126', 'right', '', NOW(), NOW()),
 
@@ -2076,7 +2076,7 @@ CREATE TABLE IF NOT EXISTS `fermenterStatuses` (
 -- Dumping data for table `kegStatuses`
 --
 
-INSERT INTO `fermenterStatuses` ( code, name, createdDate, modifiedDate ) VALUES
+INSERT INTO `fermenterStatuses` ( `code`, `name`, `createdDate`, `modifiedDate` ) VALUES
 ( 'PRIMARY', 'Primary', NOW(), NOW() ),
 ( 'SECONDARY', 'Secondary', NOW(), NOW() ),
 ( 'DRY_HOPPING', 'Dry Hopping', NOW(), NOW() ),
@@ -2168,7 +2168,7 @@ CREATE TABLE IF NOT EXISTS `gasTankStatuses` (
 -- Dumping data for table `kegStatuses`
 --
 
-INSERT INTO `gasTankStatuses` ( code, name, createdDate, modifiedDate ) VALUES
+INSERT INTO `gasTankStatuses` ( `code`, `name`, `createdDate`, `modifiedDate` ) VALUES
 ( 'DISPENSING', 'Dispensing', NOW(), NOW() ),
 ( 'FULL', 'Full', NOW(), NOW() ),
 ( 'PARTIAL', 'Partial', NOW(), NOW() ),

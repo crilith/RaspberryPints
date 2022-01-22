@@ -312,7 +312,7 @@ if ($action == 'install')
     	echo "Creating RPints database user...";
     	flush();
     
-    	$sql = "GRANT ALL ON *.* TO '" . $dbuser . "'@'" . $servername . "' IDENTIFIED BY '" . $dbpass1 . "' WITH GRANT OPTION;";
+    	$sql = "GRANT ALL ON *.* TO '" . $dbuser . "'@'" . $servername . "' WITH GRANT OPTION;";
     	$result = $mysqli->query($sql);
     	if($mysqli->error != ""){
     	    $validerror .= "<br><strong>Cannot Create User[".$dbuser."]: " . $mysqli->error . "</strong>";
